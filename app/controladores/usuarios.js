@@ -1,14 +1,16 @@
-const controlador_login=module.exports
-const service_login=require("../servicios/login")
+const controlador_usuarios=module.exports
+const service_usuarios=require("../servicios/usuarios")
 
-controlador_login.login=async(req,res)=>{
+controlador_usuarios.login=async(req,res)=>{
     const body=req.body;
-    return await service_login.login(body.email,body.password).then(response=>{
+    console.log('llega',body);
+    return await service_usuarios.login(body.email,body.password).then(response=>{
         console.log('respuesta', response);
-        if(response.error == false){
+        if(response.error === false){
 
             res.status(200).json(response)
         }else{
+            console.log('respuesta erronea', response);
             res.status(400).json(response)
 
         }
@@ -18,9 +20,9 @@ controlador_login.login=async(req,res)=>{
     })
 }
 
-controlador_login.registro=async(req,res)=>{
+controlador_usuarios.registro=async(req,res)=>{
     const usuario=req.body;
-    return await service_login.registro(usuario).then(response=>{
+    return await service_usuarios.registro(usuario).then(response=>{
         if(response.error == false){
             console.log('respuesta', response);
 
