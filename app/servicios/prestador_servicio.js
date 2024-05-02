@@ -13,6 +13,10 @@ service_prestador_servicio.registro = async (prestador_servicio) => {
   const resp = await db_prestador_servicio.registro(prestador_servicio);
   return { error: false, resp };
 };
+service_prestador_servicio.listar = async () => {
+  const data = await db_prestador_servicio.listar();
+  return { error: false, data };
+};
 service_prestador_servicio.actualizar = async (prestador_servicio) => {
   const data = await db_prestador_servicio.actualizar(prestador_servicio);
   return { error: false, data };
