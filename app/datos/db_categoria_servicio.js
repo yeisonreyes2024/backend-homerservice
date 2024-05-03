@@ -20,11 +20,19 @@ db_categoria_servicio.crear = (categoria_servicio) => {
   });
 };
 db_categoria_servicio.actualizar = (categoria_servicio) => {
-  const { nombreCategoria, id } = categoria_servicio;
+  console.log(categoria_servicio);
+  // {
+  //   userId: 4,
+  //   nombres: 'Jesús',
+  //   apellidos: 'Durán',
+  //   tipoServicio: 'Electricista',
+  //   telefono: '3051903883'
+  // }
+  const { tipoServicio, userId } = categoria_servicio;
   return new Promise((resolve, reject) => {
     base_datos.query(
       'UPDATE categoriadeservicio  SET nombreCategoria =? WHERE id = ?',
-      [nombreCategoria, id],
+      [tipoServicio, userId],
       (err, rows) => {
         if (err) {
           console.log('Error: ', err);
@@ -85,9 +93,10 @@ db_categoria_servicio.buscar_por_nombreCategoria = (nombreCategoria) => {
   });
 };
 db_categoria_servicio.eliminar = (id) => {
+  console.log("eliminar", id)
   return new Promise((resolve, reject) => {
     base_datos.query(
-      'DELETE categoriadeservicio WHERE id=?',
+      'DELETE FROM categoriadeservicio WHERE id=?',
       [id],
       (err, rows) => {
         if (err) {

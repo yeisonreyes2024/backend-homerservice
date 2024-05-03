@@ -153,6 +153,7 @@ db_prestador_servicio.actualizar = (prestador_servicio) => {
     );
   });
 };
+
 db_prestador_servicio.eliminar = (id) => {
   return new Promise((resolve, reject) => {
     base_datos.query(

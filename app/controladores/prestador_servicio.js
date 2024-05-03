@@ -114,6 +114,7 @@ controlador_prestador_servicio.buscar_por_email = async (req, res) => {
 };
 controlador_prestador_servicio.eliminar = async (req, res) => {
   const id = req.params.id;
+  console.log("id controlador",id);
   return await service_prestador_servicio
     .eliminar(id)
     .then((response) => {

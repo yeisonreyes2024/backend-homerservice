@@ -19,6 +19,7 @@ controlador_categoria_servicio.crear = async (req, res) => {
 };
 controlador_categoria_servicio.actualizar = async (req, res) => {
   const categoria = req.body;
+  console.log(categoria);
   return await service_categoria_servicio
     .actualizar(categoria)
     .then((response) => {

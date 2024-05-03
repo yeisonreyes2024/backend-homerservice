@@ -38,6 +38,7 @@ service_prestador_servicio.buscar_por_email = async (email) => {
   return { error: false, data };
 };
 service_prestador_servicio.eliminar = async (id) => {
+  console.log("id servicio",id)
   const data = await db_prestador_servicio.eliminar(id);
   return { error: false, data };
 };
