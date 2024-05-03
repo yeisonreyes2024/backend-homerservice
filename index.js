@@ -20,6 +20,8 @@ class Servidor {
 
     this.app.use(express.json());
     this.app.use(morgan("dev"));
+    this.app.use(cors());
+
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
@@ -36,6 +38,7 @@ class Servidor {
       );
       res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
       next();
+
     });
   }
 
@@ -44,7 +47,6 @@ class Servidor {
       res.send('Hola mundo!');
     });
     this.app.use(rutas);
-    this.app.use(cors());
   }
   inicio() {
     this.app.listen(this.PUERTO, "0.0.0.0", () => {
